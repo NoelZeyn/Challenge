@@ -1,4 +1,3 @@
-// components/Header.tsx
 "use client";
 import React, { useState } from "react";
 import { links } from "@/utils/data"; // Import links dari data.ts
@@ -10,7 +9,7 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white sticky top-0 z-50 shadow-lg">
+    <header className="bg-gradient-to-r from-gray-900 via-indigo-700 to-blue-500 text-white sticky top-0 z-50 shadow-lg">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         <h1 className="text-2xl font-bold hover:text-yellow-400 transition-all duration-300">
           <Link href={links[0].link}>{links[0].title}</Link> {/* Link ke Portofolio */}

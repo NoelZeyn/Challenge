@@ -8,7 +8,7 @@ export const links = [
     {
       id: 2,
       title: 'Home',
-      link: '#Home', // Link ke halaman Home
+      link: '/', // Link ke halaman Home
     },
     {
       id: 3,
@@ -18,7 +18,7 @@ export const links = [
     {
       id: 4,
       title: 'Leaderboard',
-      link: '#leaderboard', // Link ke leaderboard
+      link: '/Leaderboard', // Link ke leaderboard
     },
     {
       id: 5,
