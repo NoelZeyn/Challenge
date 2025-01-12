@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import Header from "@/components/Header";
 import '../styles/globals.css';
-import Test from "@/pages/Test"
+import Test from "@/pages/Test";
+
 const Leaderboard: React.FC = () => {
   const [scores, setScores] = useState<{ name: string; points: number }[]>([]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const storedScores = localStorage.getItem('leaderboard');
-      if (storedScores) {
-        setScores(JSON.parse(storedScores));
+    const fetchScores = async () => {
+      try {
+        const response = await fetch('/api/leaderboards');
+        const data = await response.json();
+        setScores(data);
+      } catch (error) {
+        console.error('Failed to fetch leaderboard:', error);
       }
-    }
+    };
+
+    fetchScores();
   }, []);
 
   return (
@@ -27,7 +33,7 @@ const Leaderboard: React.FC = () => {
           ))}
         </ul>
       </section>
-      <Test/>
+      <Test />
     </div>
   );
 };
