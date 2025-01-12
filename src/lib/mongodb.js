@@ -12,13 +12,6 @@ const connectToDatabase = async () => {
 
   // Get MongoDB URI from environment variable
   const mongoUri = process.env.MONGODB_URI;
-
-  // Check if the MongoDB URI is defined
-  if (!mongoUri) {
-    console.error("MongoDB URI is not defined. Make sure you have set the MONGODB_URI environment variable.");
-    return;
-  }
-
   try {
     // Connect to MongoDB
     await mongoose.connect(mongoUri);
@@ -26,6 +19,13 @@ const connectToDatabase = async () => {
   } catch (error) {
     console.error("Error connecting to MongoDB:", error.message);
   }
+  console.log(mongoUri)
+  // Check if the MongoDB URI is defined
+  if (!mongoUri) {
+    console.error("MongoDB URI is not defined. Make sure you have set the MONGODB_URI environment variable.");
+    return;
+  }
+
 };
 
 export default connectToDatabase;
