@@ -1,4 +1,8 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file in local development
+dotenv.config();
 
 const connectToDatabase = async () => {
   if (mongoose.connection.readyState >= 1) {
@@ -6,10 +10,18 @@ const connectToDatabase = async () => {
     return;
   }
 
+  // Get MongoDB URI from environment variable
+  const mongoUri = process.env.MONGODB_URI;
+
+  // Check if the MongoDB URI is defined
+  if (!mongoUri) {
+    console.error("MongoDB URI is not defined. Make sure you have set the MONGODB_URI environment variable.");
+    return;
+  }
+
   try {
-    await mongoose.connect("mongodb+srv://ahmadakrom563:230104Merdeka%40@portfolio.0nsj2.mongodb.net/", {
-        
-    });
+    // Connect to MongoDB
+    await mongoose.connect(mongoUri);
     console.log("Successfully connected to MongoDB.");
   } catch (error) {
     console.error("Error connecting to MongoDB:", error.message);
