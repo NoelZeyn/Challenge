@@ -8,9 +8,8 @@ const connectToDatabase = async () => {
   }
 
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+    await mongoose.connect("mongodb+srv://ahmadakrom563:230104Merdeka%40@portfolio.0nsj2.mongodb.net/", {
+        
     });
     console.log("Successfully connected to MongoDB.");
   } catch (error) {
