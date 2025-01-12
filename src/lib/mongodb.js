@@ -6,11 +6,6 @@ const connectToDatabase = async () => {
     return;
   }
 
-  if (!mongoUri) {
-    console.error("MongoDB URI is not defined");
-    return;
-  }
-
   try {
     await mongoose.connect("mongodb+srv://ahmadakrom563:230104Merdeka%40@portfolio.0nsj2.mongodb.net/", {
         
