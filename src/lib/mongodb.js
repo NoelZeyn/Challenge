@@ -6,10 +6,14 @@ const connectToDatabase = async () => {
     return;
   }
 
+  if (!mongoUri) {
+    console.error("MongoDB URI is not defined");
+    return;
+  }
+
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      serverSelectionTimeoutMS: 5000, // Timeout untuk memilih server dalam 5 detik
-      socketTimeoutMS: 45000, // Timeout socket dalam 45 detik
+    await mongoose.connect("mongodb+srv://ahmadakrom563:230104Merdeka%40@portfolio.0nsj2.mongodb.net/", {
+        
     });
     console.log("Successfully connected to MongoDB.");
   } catch (error) {
