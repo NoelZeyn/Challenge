@@ -23,7 +23,7 @@ export const links = [
     {
       id: 5,
       title: 'About',
-      link: '#about', // Link ke bagian About
+      link: 'https://portofolio-mo52.vercel.app/', // Link ke bagian About
     },
   ];
   
