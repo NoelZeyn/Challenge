@@ -4,7 +4,7 @@ import '../styles/globals.css';
 import Test from "@/pages/Test";
 
 const Leaderboard: React.FC = () => {
-  const [scores, setScores] = useState<{ name: string; points: number }[]>([]);
+  const [scores, setScores] = useState<{ name: string; score: number }[]>([]);
 
   useEffect(() => {
     const fetchScores = async () => {
@@ -28,7 +28,7 @@ const Leaderboard: React.FC = () => {
         <ul>
           {scores.map((score, index) => (
             <li key={index} className="mb-2">
-              {index + 1}. {score.name} - {score.points} pts
+              {index + 1}. {score.name} - {score.score} pts
             </li>
           ))}
         </ul>

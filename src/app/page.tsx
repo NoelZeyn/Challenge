@@ -1,9 +1,10 @@
 
 "use client";
-import Header from "@/components/Header";
+// import Header from "@/components/Header";
 import Loading from "@/components/Loading";
 import GameOver from "@/components/GameOver";
 import TriviaGame from "@/components/TriviaGame";
+import Homes from "@/components/Homes";
 import { useTriviaGame } from "@/components/useTriviaGame";
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
+      <Homes />
       <TriviaGame
         currentQuestion={currentQuestion}
         answers={answers}

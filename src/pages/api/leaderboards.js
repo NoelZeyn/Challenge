@@ -6,7 +6,7 @@ export default async function handler(req, res) {
       const { data: leaderboard, error } = await supabase
         .from('leaderboard')
         .select('*')
-        .order('points', { ascending: false })
+        .order('score', { ascending: false })
         .limit(10); // Mendapatkan 10 skor tertinggi
 
       if (error) {
@@ -20,11 +20,11 @@ export default async function handler(req, res) {
     }
   } else if (req.method === 'POST') {
     try {
-      const { name, points } = req.body;
+      const { name, score } = req.body;
 
       const { data, error } = await supabase
         .from('leaderboard')
-        .insert([{ name, points }]);
+        .insert([{ name, score }]);
 
       if (error) {
         throw error;
